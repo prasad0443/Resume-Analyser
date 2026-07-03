@@ -1,162 +1,260 @@
-# Resume Analyzer          
-[![Live App](https://img.shields.io/badge/Live-App-brightgreen)](https://resume-analyser-kp0f.onrender.com/)
+# Resume Analyzer
 
+Resume Analyzer is a full-stack web application that uses Artificial Intelligence to analyze resumes and provide meaningful insights, including skill extraction, resume evaluation, improvement suggestions, and relevant job recommendations. The application also includes secure user authentication with email verification, password reset, and Google Sign-In.
 
+---
 
+## Features
 
-## Description
+* AI-powered resume analysis using Google Gemini
+* Resume upload and analysis
+* Resume improvement suggestions
+* Skill extraction from resumes
+* Resume evaluation and feedback
+* Job recommendations using Adzuna API
+* JWT-based authentication
+* Email verification using Brevo
+* Password reset via email
+* Google OAuth 2.0 Login
+* Previous resume analysis history
+* Responsive React-based user interface
 
-Resume Analyzer is a full-stack web application that analyzes resumes using Artificial Intelligence and provides meaningful insights such as skill extraction, resume evaluation, and improvement suggestions.
-
-This project integrates **Google Gemini AI** for resume analysis and includes secure authentication features like email verification and password reset using **Brevo** and job suggestions using **Adzuna API**.
-
-
+---
 
 ## Tech Stack
-- Frontend: HTML, CSS, React.js  
-- Backend: Spring Boot  
-- Database: MySQL  
 
+### Frontend
 
+* React.js
+* HTML5
+* CSS3
+* JavaScript
+* Vite
 
-## Preview
+### Backend
 
-<p align="center">
-  <img width="30%" src="https://github.com/user-attachments/assets/df7bb0c1-1f10-478d-b8c9-c2b1bf2369f4" />
-  <img width="30%" src="https://github.com/user-attachments/assets/1c65a0cc-c915-4103-a7fe-30a975639ab0" />
-  <img width="30%" src="https://github.com/user-attachments/assets/b8ca21ad-7c2f-470d-ad5d-73119b8fd9f1" />
-</p>
+* Java
+* Spring Boot
+* Spring Security
+* JWT Authentication
+* Maven
 
-<p align="center">
-  <img width="30%" src="https://github.com/user-attachments/assets/3f945bf1-84dd-4052-9c65-709f512ae0a4" />
-  <img width="30%" src="https://github.com/user-attachments/assets/d04af8b7-4e12-4948-94c6-3b1f15340180" />
-  <img width="30%" src="https://github.com/user-attachments/assets/a0c6f513-2108-41c8-98b5-91e86d27d398" />
-</p>
+### Database
 
+* MySQL
 
+### AI & APIs
 
-## Frontend & Backend Integration Notes
+* Google Gemini AI
+* Adzuna Job Search API
+* Brevo Email API
+* Google OAuth 2.0
 
-- The frontend UI is developed using **React**
-- For deployment, the React application is **built and served by the Spring Boot backend** as static files
-- The React production build files are placed inside the backend’s **static** directory
+---
 
-### Static & Template Files
-- The `static` folder contains the **React production build files**
-- The `templates` folder inside `static` is used to store **email templates**
-  - Used for **email verification** and **password reset**
+## Project Structure
 
+```text
+Resume-Analyser
+│
+├── frontend src/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.js
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   ├── resources/
+│   │   └── static/
+│   └── test/
+│
+├── Dockerfile
+├── pom.xml
+├── render.yaml
+└── README.md
+```
 
+---
 
-## How to Run the Project Locally
+## Prerequisites
 
-#### 1. Clone the Repository
+Before running the application, ensure you have installed:
+
+* Java 17 or above
+* Maven
+* Node.js
+* MySQL
+* Git
+
+---
+
+## Installation
+
+### 1. Clone the Repository
+
 ```bash
-git clone https://github.com/Mohamed-Imran-12/Resume-Analyser.git
+git clone https://github.com/prasad0443/Resume-Analyser.git
 ```
 
-#### 2. Open Project in IDE
-Open the project in **IntelliJ IDEA / Eclipse**
+### 2. Open the Project
 
-Open `pom.xml` and allow Maven to download dependencies
+Open the project in IntelliJ IDEA, Eclipse, or VS Code.
 
-#### 3. Configure Credentials (`application.properties`)
+Allow Maven to download all required dependencies.
 
-###### Database (ONLY MySQL)
+---
+
+## Configure `application.properties`
+
+Configure the following credentials before running the application.
+
+### MySQL
+
 ```properties
-spring.datasource.url=your_DB_URL
-spring.datasource.username=your_DB_USERNAME
-spring.datasource.password=your_DB_PASSWORD
+spring.datasource.url=YOUR_DATABASE_URL
+spring.datasource.username=YOUR_DATABASE_USERNAME
+spring.datasource.password=YOUR_DATABASE_PASSWORD
 ```
 
-###### Google Cloud Platform (Google Sign-In)
+### Google OAuth
+
 ```properties
-spring.security.oauth2.client.registration.google.client-id=your_GCP_ID
-spring.security.oauth2.client.registration.google.client-secret=your_GCP_SECRET
+spring.security.oauth2.client.registration.google.client-id=YOUR_GOOGLE_CLIENT_ID
+spring.security.oauth2.client.registration.google.client-secret=YOUR_GOOGLE_CLIENT_SECRET
 ```
 
-###### Google Gemini AI (Resume Analysis)
+### Google Gemini AI
+
 ```properties
-genKey=your_GEMINI_API_KEY
+genKey=YOUR_GEMINI_API_KEY
 ```
 
-###### Mail Service (ONLY Brevo)
+### Brevo Email API
+
 ```properties
-apiKey=your_BREVO_MAIL_API
+apiKey=YOUR_BREVO_API_KEY
 ```
 
-###### Job Suggestions (ONLY Adzuna)
+### Adzuna API
+
 ```properties
-application-id=your_ADZUNA_APP_ID
-application-api-key=your_ADZUNA_API_KEY
+application-id=YOUR_ADZUNA_APP_ID
+application-api-key=YOUR_ADZUNA_API_KEY
 ```
 
-###### JWT Credentials
+### JWT
+
 ```properties
-jwt-key=your_OWN_SECRET_KEY (Generate a secure key using any JWT secret generator)
+jwt-key=YOUR_SECRET_KEY
 ```
 
+---
 
-#### 4. Run Backend
-Run `ResumeAnalyserApplication.java`
+## Running the Project
 
-#### 5. Open in Browser
+### Backend
+
+Run the Spring Boot application:
+
+```text
+ResumeAnalyserApplication.java
 ```
+
+The application starts at:
+
+```text
 http://localhost:8080/
 ```
 
+---
 
+## Frontend Development
 
-## Important Notes (Must Read)
+Run the React frontend separately during development:
 
-- Only **Gemini AI** is configured in this project.  
-To use another AI provider, update AI-related code in `appservice.java`.
-
-- Email functionality works **only with Brevo API**.  
-To use another mail provider, update mail-related code in `mailservice.java`.
-
-- AI models evolve quickly.  
-If the configured Gemini model is removed or replaced, update the model in `appservice.java`.
-
-
-
-## Modifying the Frontend UI
-
-Do **not** edit files inside the backend `static` folder directly.
-
-### 1. Run Frontend Separately (Development Mode)
 ```bash
 cd "frontend src"
 npm install
 npm run dev
 ```
 
-This starts the React development server for UI changes.
+---
 
+## Production Build
 
+Generate the React production build:
 
-### 2. Build Frontend for Backend Deployment
 ```bash
 cd "frontend src"
 npm run build
 ```
 
-#### Backend Static Structure
+Copy the generated files from the `dist` folder into:
+
 ```text
-static/
-├── assets/
-│   ├── *.css
-│   ├── *.js
-├── index.html
+src/main/resources/static/
 ```
 
-Steps:
-- Delete old `index.html` and files inside `assets`
-- Copy new build files from `dist`
-- Paste them into backend `static` directory
+Replace:
 
+* `index.html`
+* `assets/`
 
+---
 
-## Disclaimer
-- This project is developed for learning and demonstration purposes
-- AI analysis results may vary and should not be considered professional career advice
+## Screenshots
+
+Add screenshots of:
+
+* Home Page
+* Login Page
+* Resume Upload
+* Resume Analysis Results
+* Previous Analysis History
+
+---
+
+## Important Notes
+
+* The application currently uses Google Gemini AI for resume analysis.
+* Email functionality is implemented using the Brevo API.
+* Job recommendations are powered by the Adzuna API.
+* If an API provider changes or deprecates a service, update the corresponding service implementation accordingly.
+
+---
+
+## Future Improvements
+
+* ATS Resume Score
+* Resume vs Job Description Matching
+* DOCX Resume Support
+* AI Interview Question Generator
+* Download Analysis as PDF
+* Dashboard Analytics
+
+---
+
+## Acknowledgements
+
+This repository is based on the open-source Resume Analyzer project created by Mohamed Imran. It is maintained for educational purposes, learning, and future enhancements.
+
+Original Repository:
+https://github.com/Mohamed-Imran-12/Resume-Analyser
+
+---
+
+## License
+
+This project is intended for educational and learning purposes.
+
+---
+
+## Repository Maintainer
+
+**Prasad Kusmude**
+
+GitHub: https://github.com/prasad0443
+
+If you find this project useful, consider giving it a star on GitHub.
